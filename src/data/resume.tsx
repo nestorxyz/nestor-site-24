@@ -227,7 +227,8 @@ export const DATA = {
         },
       ],
       image: '',
-      video: 'https://cdn.llm.report/openai-demo.mp4',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/agotao%20(360p).mp4',
     },
     {
       title: 'Konto',
@@ -259,7 +260,7 @@ export const DATA = {
       ],
       image: '',
       video:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/konto%20(360p).mp4',
     },
   ],
   hackathons: [
