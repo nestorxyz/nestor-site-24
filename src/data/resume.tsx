@@ -341,17 +341,27 @@ export const DATA = {
       ],
     },
     {
-      title: 'HackDavis',
-      dates: 'January 20th - 21st, 2018',
-      location: 'Davis, California',
+      title: 'Ethergram',
+      dates: '2022',
+      location: 'Lima, Peru',
       description:
-        'Developed a mobile application which allocates a daily carbon emission allowance to users to move towards a sustainable environment.',
+        'Custom personal landing page where ppl can let me a message, a gif, a portfolio, or anything they want, and it will be saved in the blockchain (not active btw)',
       image:
         'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-davis.png',
-      win: 'Best Data Hack',
-      mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg',
+      //win: 'Best Data Hack',
+      //mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg',
       links: [
         {
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://ethergram.vercel.app',
+        },
+        {
+          title: 'Github',
+          icon: <Icons.github className="h-4 w-4" />,
+          href: 'https://github.com/nestorxyz/cafe-con-ether',
+        },
+        /*  {
           title: 'Devpost',
           icon: <Icons.globe className="h-4 w-4" />,
           href: 'https://devpost.com/software/my6footprint',
@@ -370,29 +380,39 @@ export const DATA = {
           title: 'Server',
           icon: <Icons.github className="h-4 w-4" />,
           href: 'https://github.com/Wallet6/wallet6-server',
-        },
+        }, */
       ],
     },
     {
-      title: 'ETH Waterloo',
-      dates: 'October 13th - 15th, 2017',
-      location: 'Waterloo, Ontario',
+      title: 'Candy Punks',
+      dates: '2022',
+      location: 'Lima, Peru',
       description:
-        'Developed a blockchain application for doctors and pharmacists to perform trustless transactions and prevent overdosage in patients.',
+        'Candy Punks are a collection of randomized avatars whose metadata is stored on the Solana network. They have unique characteristics and there are only 21 in existence.',
       image:
         'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/eth-waterloo.png',
       links: [
         {
-          title: 'Organization',
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://nft-solana-collection.vercel.app',
+        },
+        {
+          title: 'Frontend Code',
           icon: <Icons.github className="h-4 w-4" />,
-          href: 'https://github.com/ethdocnet',
+          href: 'https://github.com/nestorxyz/frontend-punks',
+        },
+        {
+          title: 'Backend Code',
+          icon: <Icons.github className="h-4 w-4" />,
+          href: 'https://github.com/nestorxyz/backend-punks',
         },
       ],
     },
     {
-      title: 'Hack The North',
-      dates: 'September 15th - 17th, 2017',
-      location: 'Waterloo, Ontario',
+      title: 'Sunday',
+      dates: '2021',
+      location: 'Lima, Peru',
       description:
         'Developed a virtual reality application allowing users to see themselves in third person.',
       image:
