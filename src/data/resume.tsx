@@ -414,58 +414,62 @@ export const DATA = {
       dates: '2021',
       location: 'Lima, Peru',
       description:
-        'Developed a virtual reality application allowing users to see themselves in third person.',
+        'Frontend web app with a project dashboard, task progress pie chart, and color-coded kanban board for managing tasks by category.',
       image:
         'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png',
       mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
       links: [
         {
-          title: 'Streamer Source',
-          icon: <Icons.github className="h-4 w-4" />,
-          href: 'https://github.com/justinmichaud/htn2017',
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://sunday-eight.vercel.app/proyectos',
         },
-        {
-          title: 'Client Source',
-          icon: <Icons.github className="h-4 w-4" />,
-          href: 'https://github.com/dillionverma/RTSPClient',
-        },
-      ],
-    },
-    {
-      title: 'Hack The 6ix',
-      dates: 'August 26th - 27th, 2017',
-      location: 'Toronto, Ontario',
-      description:
-        'Developed an open platform for people shipping items to same place to combine shipping costs and save money.',
-      image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-6ix.jpg',
-      mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
-      links: [
         {
           title: 'Source',
           icon: <Icons.github className="h-4 w-4" />,
-          href: 'https://github.com/ShareShip/ShareShip',
-        },
-        {
-          title: 'Site',
-          icon: <Icons.globe className="h-4 w-4" />,
-          href: 'https://share-ship.herokuapp.com/',
+          href: 'https://github.com/nestorxyz/sunday',
         },
       ],
     },
     {
-      title: 'Stupid Hack Toronto',
-      dates: 'July 23rd, 2017',
-      location: 'Toronto, Ontario',
+      title: 'Avo Market',
+      dates: '2021',
+      location: 'Lima, Peru',
       description:
-        'Developed a chrome extension which tracks which facebook profiles you have visited and immediately texts your girlfriend if you visited another girls page.',
+        'Avo Market is a frontend web app that allows users to select avocados and add them to a cart for purchase. It includes a shopping cart and product details.',
+      image:
+        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-6ix.jpg',
+      //mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
+      links: [
+        {
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://github.com/nestorxyz/curso-nextjs',
+        },
+        {
+          title: 'Source',
+          icon: <Icons.github className="h-4 w-4" />,
+          href: 'https://avomarket.vercel.app',
+        },
+      ],
+    },
+    {
+      title: 'Road to Trillion',
+      dates: '2021',
+      location: 'Lima, Peru',
+      description: 'NFT game to fight against a boss in group',
       image:
         'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/stupid-hackathon.png',
       links: [
         {
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://road-to-trillion.netlify.app',
+        },
+        {
           title: 'Source',
           icon: <Icons.github className="h-4 w-4" />,
-          href: 'https://github.com/nsagirlfriend/nsagirlfriend',
+          href: 'https://github.com/nestorxyz/road-to-trillion',
         },
       ],
     },
