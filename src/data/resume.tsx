@@ -75,6 +75,13 @@ export const DATA = {
         navbar: false,
         linkInBio: true,
       },
+      Newsletter: {
+        name: 'Newsletter',
+        url: 'https://nestorxyz.substack.com',
+        icon: Icons.newsletter,
+        navbar: false,
+        linkInBio: true,
+      },
       email: {
         name: 'Send Email',
         url: '#',
