@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { HomeIcon, NotebookIcon } from 'lucide-react';
+import { HomeIcon, NotebookIcon, LinkIcon } from 'lucide-react';
 
 export const DATA = {
   name: 'Nestor Mamani',
@@ -26,58 +26,61 @@ export const DATA = {
   ],
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
+    { href: '/link', icon: LinkIcon, label: 'Link in Bio' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
   ],
   contact: {
     email: 'hello@example.com',
     tel: '+123456789',
     social: {
-      GitHub: {
-        name: 'GitHub',
-        url: 'https://github.com/nestorxyz',
-        icon: Icons.github,
-
-        navbar: true,
-      },
-      LinkedIn: {
-        name: 'LinkedIn',
-        url: 'https://linkedin.com/in/nestorxyz',
-        icon: Icons.linkedin,
-
-        navbar: true,
-      },
-      X: {
-        name: 'X',
-        url: 'https://twitter.com/nestorxyz',
-        icon: Icons.x,
-
-        navbar: true,
-      },
       Instagram: {
         name: 'Instagram',
         url: 'https://instagram.com/nestorxyz',
         icon: Icons.instagram,
         navbar: true,
+        linkInBio: true,
       },
       TikTok: {
         name: 'TikTok',
         url: 'https://www.tiktok.com/@nestorxyc',
         icon: Icons.tiktok,
         navbar: true,
+        linkInBio: true,
+      },
+      GitHub: {
+        name: 'GitHub',
+        url: 'https://github.com/nestorxyz',
+        icon: Icons.github,
+        navbar: false,
+        linkInBio: true,
+      },
+      LinkedIn: {
+        name: 'LinkedIn',
+        url: 'https://linkedin.com/in/nestorxyz',
+        icon: Icons.linkedin,
+        navbar: false,
+        linkInBio: true,
+      },
+      X: {
+        name: 'X',
+        url: 'https://twitter.com/nestorxyz',
+        icon: Icons.x,
+        navbar: true,
+        linkInBio: true,
       },
       Random: {
         name: 'Random',
         url: 'https://www.tiktok.com/@offnestor',
         icon: Icons.random,
-
-        navbar: true,
+        navbar: false,
+        linkInBio: true,
       },
       email: {
         name: 'Send Email',
         url: '#',
         icon: Icons.email,
-
         navbar: false,
+        linkInBio: false,
       },
     },
   },
