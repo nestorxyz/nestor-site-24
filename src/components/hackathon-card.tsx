@@ -1,6 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
 
 interface Props {
   title: string;
@@ -27,7 +27,7 @@ export function HackathonCard({
     <li className="relative ml-10 py-4">
       <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
         <Avatar className="border size-12 m-auto">
-          <AvatarImage src={image} alt={title} className="object-contain" />
+          <AvatarImage src={image} alt={title} className="object-cover" />
           <AvatarFallback>{title[0]}</AvatarFallback>
         </Avatar>
       </div>

@@ -59,6 +59,19 @@ export const DATA = {
         icon: Icons.instagram,
         navbar: true,
       },
+      TikTok: {
+        name: 'TikTok',
+        url: 'https://www.tiktok.com/@nestorxyc',
+        icon: Icons.tiktok,
+        navbar: true,
+      },
+      Random: {
+        name: 'Random',
+        url: 'https://www.tiktok.com/@offnestor',
+        icon: Icons.random,
+
+        navbar: true,
+      },
       email: {
         name: 'Send Email',
         url: '#',
@@ -271,7 +284,7 @@ export const DATA = {
       description:
         'Ice is a chrome extension that help you understand wtf you are signing with your wallet 🤘...using AI',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-western.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/iceSignature.png',
       mlh: '',
       links: [
         {
@@ -288,7 +301,7 @@ export const DATA = {
       description:
         'Build trustworthy deals: Using custodial payments, contractors have guaranteed payment, and clients can rest assured that payment will only be released once the job is done',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/cesio.png',
       mlh: '',
       links: [
         {
@@ -305,7 +318,7 @@ export const DATA = {
       description: 'Blog demo site: Find the best Web3 Writers and Blogs',
       icon: 'public',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/firstnet.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/web3Blocks.webp',
       links: [
         {
           title: 'Site',
@@ -326,7 +339,7 @@ export const DATA = {
       description:
         'Added a feature to showcase NFTs on a link in bio page, using custom web3 API',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/developer-week.jpg',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/ethNFT.webp',
       links: [
         {
           title: 'Site',
@@ -347,7 +360,7 @@ export const DATA = {
       description:
         'Custom personal landing page where ppl can let me a message, a gif, a portfolio, or anything they want, and it will be saved in the blockchain (not active btw)',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-davis.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/ethergram.webp',
       //win: 'Best Data Hack',
       //mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2018/white.svg',
       links: [
@@ -390,7 +403,7 @@ export const DATA = {
       description:
         'Candy Punks are a collection of randomized avatars whose metadata is stored on the Solana network. They have unique characteristics and there are only 21 in existence.',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/eth-waterloo.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/candyPunks.webp',
       links: [
         {
           title: 'Site',
@@ -416,8 +429,8 @@ export const DATA = {
       description:
         'Frontend web app with a project dashboard, task progress pie chart, and color-coded kanban board for managing tasks by category.',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png',
-      mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/sunday.webp',
+      //mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
       links: [
         {
           title: 'Site',
@@ -438,7 +451,7 @@ export const DATA = {
       description:
         'Avo Market is a frontend web app that allows users to select avocados and add them to a cart for purchase. It includes a shopping cart and product details.',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-6ix.jpg',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/platziAvo.webp',
       //mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2017/white.svg',
       links: [
         {
@@ -459,7 +472,7 @@ export const DATA = {
       location: 'Lima, Peru',
       description: 'NFT game to fight against a boss in group',
       image:
-        'https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/stupid-hackathon.png',
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/road2trillion.webp',
       links: [
         {
           title: 'Site',
@@ -473,7 +486,7 @@ export const DATA = {
         },
       ],
     },
-    {
+    /* {
       title: 'Global AI Hackathon - Toronto',
       dates: 'June 23rd - 25th, 2017',
       location: 'Toronto, Ontario',
@@ -697,6 +710,6 @@ export const DATA = {
           href: 'https://github.com/UWPortalSDK/crowmark',
         },
       ],
-    },
+    }, */
   ],
 } as const;

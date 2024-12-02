@@ -206,12 +206,13 @@ export default function Page() {
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{' '}
-                <Link
-                  href={DATA.contact.social.X.url}
+                <a
+                  href={DATA.contact.social.Instagram.url}
+                  target="_blank"
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on twitter
-                </Link>{' '}
+                  with a direct question on instagram
+                </a>{' '}
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
               </p>
