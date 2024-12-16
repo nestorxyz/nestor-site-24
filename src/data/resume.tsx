@@ -177,7 +177,7 @@ export const DATA = {
       links: [
         {
           type: 'Website',
-          href: 'https://www.usetreats.com',
+          href: 'https://wa.link/cgk4y0',
           icon: <Icons.globe className="size-3" />,
         },
         {
