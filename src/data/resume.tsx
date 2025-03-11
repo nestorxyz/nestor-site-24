@@ -502,6 +502,100 @@ export const DATA = {
         },
       ],
     },
+    {
+      title: 'Marvel Gif Portal',
+      dates: '2021',
+      location: 'Lima, Peru',
+      description: 'Claim your favorite Marvel gifs to your wallet',
+      image:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/marvelGifPortal.webp',
+      links: [
+        {
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://marvel-gif-portal.netlify.app',
+        },
+        {
+          title: 'Source',
+          icon: <Icons.github className="h-4 w-4" />,
+          href: 'https://github.com/nestorxyz/gif-portal-starter',
+        },
+        {
+          title: 'Backend Code',
+          icon: <Icons.github className="h-4 w-4" />,
+          href: 'https://github.com/nestorxyz/gif-portal-backend',
+        },
+      ],
+    },
+    {
+      title: 'Konto UX/UI Case Study',
+      dates: '2021',
+      location: 'Lima, Peru',
+      description: 'Case study of a group purchasing web application',
+      image:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/projects/KontoCaseStudy.webp',
+      links: [
+        {
+          title: 'Site',
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: 'https://www.behance.net/gallery/129130243/Konto-UXUI-Case-Study',
+        },
+      ],
+    },
+    /*  {
+    title: 'Extracurricular points - Design Process',
+    image_path: '/assets/projects/points.webp',
+    url: 'https://uxfol.io/project/032e62b3/',
+    year: 2021,
+  },
+  {
+    title: 'Customer Segmentation with K-means',
+    image_path: '/assets/projects/CustomerSegmentation.webp',
+    url: 'https://deepnote.com/@nestoredduardo/Customer-Segmentation-JG-iFNc8QsOXgMHz3AdjgQ',
+    year: 2021,
+  },
+  {
+    title: 'Two years churn predictive model',
+    image_path: '/assets/projects/churnPredictiveModel.webp',
+    url: 'https://deepnote.com/@nestoredduardo/Two-year-churn-predictive-model-pkdeh3LnSwmzhswl7sJ6oA',
+    year: 2021,
+  },
+  {
+    title: 'Game of Thrones Deaths',
+    image_path: '/assets/projects/DatavizGOT.webp',
+    url: 'https://public.tableau.com/views/GameofThronesDeaths_16333610372280/Dashboard1?:language=es-ES&:display_count=n&:origin=viz_share_link',
+    year: 2021,
+  },
+  {
+    title: 'Analysis of production data',
+    image_path: '/assets/projects/productionAnalysis.webp',
+    url: 'https://deepnote.com/@nestoredduardo/Production-data-analysis-o1thilcxTc-dsisHlloI0g',
+    year: 2021,
+  },
+  {
+    title: 'Badge Management',
+    image_path: '/assets/projects/badgeManagement.png',
+    url: 'https://badgesplatform.netlify.app/',
+    year: 2021,
+  },
+  {
+    title: 'PlatziVideo',
+    image_path: '/assets/projects/platziVideo.png',
+    url: 'https://platzivideo-react.netlify.app/',
+    year: 2021,
+  },
+  {
+    title: 'Netzi Video Player',
+    image_path: '/assets/projects/netzi.png',
+    url: 'https://nestoredduardo.github.io/videoPlayer/',
+    year: 2021,
+  },
+  {
+    title: 'Batatabit',
+    image_path: '/assets/projects/batatabit.png',
+    url: 'https://nestoredduardo.github.io/Mobile-first/',
+    year: 2020,
+  }, */
     /* {
       title: 'Global AI Hackathon - Toronto',
       dates: 'June 23rd - 25th, 2017',
