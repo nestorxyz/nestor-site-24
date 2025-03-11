@@ -10,7 +10,7 @@ export const DATA = {
   description:
     'builder, former industrial engineer who found more enjoyment in shipping products',
   summary:
-    'i started coding in 2020 while studying industrial engineering. by 2022, i launched usetreats.com, which led to a role at a YC startup. my tech journey began with a DIY 3D printer in 2019 that ended up frying the Arduino, but i had a lot of fun. later, i cloned the UI of Misfans, added NFT features, and landed my first job in product. now, i’m building in public with [usetreats (a financial chatbot)](https://usetreats.com) and a [gym-geek clothing brand.](https://www.instagram.com/misfit.pe/)',
+    'i started coding in 2020 while studying industrial engineering. by 2022, i launched usetreats.com, which led to a role at a YC startup. my tech journey began with a DIY 3D printer in 2019 that ended up frying the Arduino, but i had a lot of fun. later, i cloned the UI of Misfans, added NFT features, and landed my first job in product. now, i’m building in public with [usetreats (a financial chatbot)](https://aiknowapp.vercel.app) and a [gym-geek clothing brand.](https://www.instagram.com/misfit.pe/)',
   avatarUrl: '/me.png',
   skills: [
     'React',
@@ -159,7 +159,7 @@ export const DATA = {
   projects: [
     {
       title: 'Treats',
-      href: 'https://www.usetreats.com',
+      href: 'https://aiknowapp.vercel.app',
       dates: 'Sep 2024 - Present',
       active: true,
       description:
@@ -177,7 +177,7 @@ export const DATA = {
       links: [
         {
           type: 'Website',
-          href: 'https://wa.link/cgk4y0',
+          href: 'https://aiknowapp.vercel.app',
           icon: <Icons.globe className="size-3" />,
         },
         {

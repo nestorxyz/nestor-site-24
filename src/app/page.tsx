@@ -219,6 +219,12 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+
+      <footer className="py-4 text-muted-foreground text-center">
+        <p className="text-sm">
+          &copy; {new Date().getFullYear()} {DATA.name}. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }
