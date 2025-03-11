@@ -20,8 +20,14 @@ export const DATA = {
     'Python',
     'Postgres',
     'Nest.js',
+    'GraphQL',
+    'TailwindCSS',
+    'Prisma',
     'React Native',
-    'Langchain',
+    'Voice Agents',
+    'Chat Agents',
+    'OpenAI',
+    'WhatsApp API',
     'AWS EC2-S3-Lambda-SES',
   ],
   navbar: [
@@ -103,7 +109,7 @@ export const DATA = {
       start: 'Nov 2023',
       end: 'Present',
       description:
-        'I developed modular WhatsApp flows to replace web-based onboarding forms, making the pre-qualification process more accessible and streamlined. Additionally, I led the creation of an AI-driven WhatsApp chatbot that guides clients through the mortgage process with clear next steps. I also redesigned the onboarding and dashboard UI/UX twice, integrating Mixpanel to track and analyze user interactions at every stage.',
+        'I developed an AI-driven lead profiling platform using OpenAI and VAPI for automated outreach. Additionally, I led the creation of an AI-driven WhatsApp chatbot that guides clients through the mortgage process with clear next steps. I also redesigned the onboarding and dashboard UI/UX twice, integrating Mixpanel to track and analyze user interactions at every stage.',
     },
     {
       company: 'Firmaway',
