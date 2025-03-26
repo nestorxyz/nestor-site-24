@@ -60,14 +60,14 @@ export default function Chat() {
   }, [messages]);
 
   return (
-    <main className="flex overflow-auto flex-1 h-full max-h-svh w-full flex-col bg-[#121212] text-gray-200">
-      <div className="flex-1 flex h-full flex-col relative overflow-y-auto px-4 md:px-6 pb-4">
+    <main className="flex flex-col flex-1 h-screen w-full bg-[#121212] text-gray-200">
+      <div className="flex-1 flex flex-col">
         {showHeader && messages.length === 0 ? (
           <PortfolioHeader onCategorySelect={handleCategorySelect} />
         ) : (
           <>
             <SimpleHeader />
-            <div className="my-4 flex h-full overflow-auto flex-1 flex-col gap-4">
+            <div className="flex-1 my-4 flex flex-col gap-4 overflow-y-auto px-4 md:px-6 pb-4">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -106,7 +106,7 @@ export default function Chat() {
 
       <form
         onSubmit={handleSubmit}
-        className="relative mt-auto mx-4 md:mx-6 mb-4 flex items-center rounded-full border border-gray-700 bg-gray-800 px-4 py-2 text-sm focus-within:border-gray-600"
+        className="relative mx-4 mt-auto md:mx-6 mb-4 flex items-center rounded-full border border-gray-700 bg-gray-800 px-4 py-2 text-sm focus-within:border-gray-600"
       >
         <AutoResizeTextarea
           onKeyDown={handleKeyDown}
