@@ -9,11 +9,31 @@ import {
 } from '@/components/ui/tooltip';
 import { AutoResizeTextarea } from '@/components/ui/autoresize-textarea';
 import { ArrowUpIcon } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { PredefinedQuestions } from './_components/predefined-questions';
+import { PortfolioHeader } from './_components/portfolio-header';
+import { SimpleHeader } from './_components/simple-header';
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
-    maxSteps: 3,
+  const { messages, input, setInput, append } = useChat({
+    api: '/api/chat',
   });
+
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [showHeader, setShowHeader] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<
+    'skills' | 'projects' | 'contact' | null
+  >(null);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    void append({ content: input, role: 'user' });
+    setInput('');
+    setShowHeader(false);
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -21,37 +41,79 @@ export default function Chat() {
       handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
     }
   };
+
+  const handlePredefinedQuestion = (question: string) => {
+    void append({ content: question, role: 'user' });
+    setShowHeader(false);
+    setSelectedCategory(null);
+  };
+
+  const handleCategorySelect = (
+    category: 'skills' | 'projects' | 'contact'
+  ) => {
+    setSelectedCategory(category);
+  };
+
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   return (
-    <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
-      <div className="space-y-4">
-        {messages.map((m) => (
-          <div key={m.id} className="whitespace-pre-wrap">
-            <div>
-              <div className="font-bold">{m.role}</div>
-              <p>
-                {m.content.length > 0 ? (
-                  m.content
-                ) : m?.parts?.[0].type === 'tool-invocation' ? (
-                  <span className="italic font-light">
-                    {'calling tool: ' + m?.parts?.[0].toolInvocation.toolName}
-                  </span>
-                ) : null}
-              </p>
+    <main className="flex overflow-auto flex-1 h-full max-h-svh w-full flex-col bg-[#121212] text-gray-200">
+      <div className="flex-1 flex h-full flex-col relative overflow-y-auto px-4 md:px-6 pb-4">
+        {showHeader && messages.length === 0 ? (
+          <PortfolioHeader onCategorySelect={handleCategorySelect} />
+        ) : (
+          <>
+            <SimpleHeader />
+            <div className="my-4 flex h-full overflow-auto flex-1 flex-col gap-4">
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  data-role={message.role}
+                  className={cn(
+                    'max-w-[85%] rounded-xl px-4 py-3 text-sm',
+                    message.role === 'assistant'
+                      ? 'self-start bg-gray-800 text-gray-200'
+                      : 'self-end bg-[#2a9d8f] text-white'
+                  )}
+                >
+                  {message.content.length > 0 ? (
+                    message.content
+                  ) : message?.parts?.[0].type === 'tool-invocation' ? (
+                    <span className="italic font-light">
+                      {'calling tool: ' +
+                        message?.parts?.[0].toolInvocation.toolName}
+                    </span>
+                  ) : null}
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
             </div>
-          </div>
-        ))}
+          </>
+        )}
       </div>
+
+      {showHeader && messages.length === 0 && (
+        <div className="px-4 md:px-6 mb-4">
+          <PredefinedQuestions
+            onSelectQuestion={handlePredefinedQuestion}
+            category={selectedCategory}
+          />
+        </div>
+      )}
 
       <form
         onSubmit={handleSubmit}
-        className="border-input bg-background focus-within:ring-ring/10 relative mx-6 mb-6 flex items-center rounded-[16px] border px-3 py-1.5 pr-8 text-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-0"
+        className="relative mt-auto mx-4 md:mx-6 mb-4 flex items-center rounded-full border border-gray-700 bg-gray-800 px-4 py-2 text-sm focus-within:border-gray-600"
       >
         <AutoResizeTextarea
           onKeyDown={handleKeyDown}
-          onChange={(e) => handleInputChange(e)}
+          onChange={(e) => setInput(e.target.value)}
           value={input}
-          placeholder="Enter a message"
-          className="placeholder:text-muted-foreground flex-1 bg-transparent focus:outline-none"
+          placeholder="Ask me anything..."
+          className="flex-1 bg-transparent text-gray-200 placeholder:text-gray-500 focus:outline-none"
         />
         <Tooltip>
           <TooltipTrigger asChild>
@@ -66,6 +128,6 @@ export default function Chat() {
           <TooltipContent sideOffset={12}>Submit</TooltipContent>
         </Tooltip>
       </form>
-    </div>
+    </main>
   );
 }
