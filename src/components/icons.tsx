@@ -53,7 +53,7 @@ export const Icons = {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 24 24"
       height="1em"
       width="1em"
@@ -67,7 +67,7 @@ export const Icons = {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 448 512"
       height="1em"
       width="1em"
@@ -81,7 +81,7 @@ export const Icons = {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -93,7 +93,7 @@ export const Icons = {
     <svg
       stroke="currentColor"
       fill="none"
-      stroke-width="2"
+      strokeWidth="2"
       viewBox="0 0 24 24"
       stroke-linecap="round"
       stroke-linejoin="round"
