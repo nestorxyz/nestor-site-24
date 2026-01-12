@@ -198,7 +198,7 @@ export default function Page() {
                     location={project.location}
                     dates={project.dates}
                     image={project.image}
-                    video={project.video}
+                    video={(project as any).video}
                     links={project.links}
                   />
                 </BlurFade>
