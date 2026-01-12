@@ -266,136 +266,96 @@ export const DATA = {
       video:
         'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/doryai_360p.mp4',
     },
+  ],
+  hackathons: [
     {
       title: 'Treats',
-      href: 'https://lukai-web.vercel.app',
       dates: 'Sep 2024 - Present',
-      active: true,
+      location: 'Remote',
       description:
         'Treats is an AI-powered finance assistant on WhatsApp that helps you track expenses, income, and savings. It uses AI to categorize transactions and provide personalized insights, making budgeting and financial management easy and automated.',
-      technologies: [
-        'Next.js',
-        'Typescript',
-        'PostgreSQL',
-        'Prisma',
-        'TailwindCSS',
-        'OpenAI',
-        'Shadcn UI',
-        'WhatsApp API',
-      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/treats%20(1080p).mp4',
       links: [
         {
-          type: 'Website',
+          title: 'Website',
           href: 'https://aiknowapp.vercel.app',
           icon: <Icons.globe className="size-3" />,
         },
         {
-          type: 'WhatsApp Chatbot',
-          href: 'http://wa.me/+51977504342',
-          icon: <Icons.whatsapp className="size-3" />,
+          title: 'Github',
+          href: 'https://github.com/lukai-app/lukai',
+          icon: <Icons.github className="size-3" />,
         },
       ],
-      image: '',
-      video:
-        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/treats%20(1080p).mp4',
     },
     {
       title: 'Misfit',
-      href: 'https://www.instagram.com/misfit.pe/',
       dates: 'Oct 2024 - Present',
-      active: true,
+      location: 'Lima, Peru',
       description:
         'GymGeek clothing brand that combines fitness and geek culture. We design and sell gym wear that features your favorite superheroes, anime characters, and video game icons.',
-      technologies: [
-        'Capcut',
-        'Photoshop',
-        'Illustrator',
-        'Instagram',
-        'TikTok',
-      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/misfit%20(720p).mp4',
       links: [
         {
-          type: 'Instagram',
+          title: 'Instagram',
           href: 'https://www.instagram.com/misfit.pe/',
           icon: <Icons.instagram className="size-3" />,
         },
         {
-          type: 'Tiktok',
+          title: 'Tiktok',
           href: 'https://www.tiktok.com/@misfit.pe',
           icon: <Icons.tiktok className="size-3" />,
         },
       ],
-      image: '',
-      video:
-        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/misfit%20(720p).mp4',
     },
     {
       title: 'Agotao',
-      href: 'https://agotao-nextjs.vercel.app',
       dates: 'Dec 2022 - Feb 2023',
-      active: true,
+      location: 'Remote',
       description:
         'Agotao was a set of APIs and a payment gateway designed to be integrated in minutes. It allowed developers to accept payments in their applications with a simple API call.',
-      technologies: [
-        'Next.js',
-        'Typescript',
-        'PostgreSQL',
-        'Prisma',
-        'TailwindCSS',
-        'Turborepo',
-        'MonoRepo',
-        'TRPC',
-      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/agotao%20(360p).mp4',
       links: [
         {
-          type: 'Website',
+          title: 'Website',
           href: 'https://agotao-nextjs.vercel.app',
           icon: <Icons.globe className="size-3" />,
         },
         {
-          type: 'Source',
+          title: 'Source',
           href: 'https://github.com/nestorxyz/agotao/tree/main',
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: '',
-      video:
-        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/agotao%20(360p).mp4',
     },
     {
       title: 'Konto',
-      href: 'https://konto.vercel.app',
       dates: 'June 2022 - Sep 2022',
-      active: true,
+      location: 'Remote',
       description:
         'Web application that facilitates group purchasing of streaming subscriptions by connecting users and automating payments.',
-      technologies: [
-        'Next.js',
-        'Typescript',
-        'PostgreSQL',
-        'Prisma',
-        'TailwindCSS',
-        'Vercel',
-        'NestorBot',
-      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/konto%20(360p).mp4',
       links: [
         {
-          type: 'Website',
+          title: 'Website',
           href: 'https://automatic.chat',
           icon: <Icons.globe className="size-3" />,
         },
         {
-          type: 'Source',
+          title: 'Source',
           href: 'https://github.com/nestorxyz/konto',
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: '',
-      video:
-        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/konto%20(360p).mp4',
     },
-  ],
-  hackathons: [
     {
       title: '🧊 Ice',
       dates: '2023',
