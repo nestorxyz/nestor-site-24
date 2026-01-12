@@ -17,7 +17,7 @@ interface ResumeCardProps {
   href?: string;
   badges?: readonly string[];
   period: string;
-  description?: string;
+  bullets?: readonly string[];
 }
 export const ResumeCard = ({
   logoUrl,
@@ -27,12 +27,13 @@ export const ResumeCard = ({
   href,
   badges,
   period,
-  description,
+  bullets,
 }: ResumeCardProps) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    if (description) {
+    // Allow navigation to href if no bullets, otherwise prevent default
+    if (bullets && bullets.length > 0) {
       e.preventDefault();
       setIsExpanded(!isExpanded);
     }
@@ -86,21 +87,27 @@ export const ResumeCard = ({
             </div>
             {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
           </CardHeader>
-          {description && (
+          {bullets && bullets.length > 0 && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
                 height: isExpanded ? "auto" : 0,
               }}
               transition={{
                 duration: 0.7,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-2 text-xs sm:text-sm overflow-hidden"
             >
-              {description}
+              <ul className="space-y-1.5 list-none pl-4 pb-4">
+                {bullets.map((bullet, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="mr-2 text-muted-foreground flex-shrink-0">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           )}
         </div>

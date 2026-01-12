@@ -1,0 +1,11 @@
+# Ralph Progress Log
+## Feature: (Not yet configured)
+## Started: (Not yet started)
+
+---
+
+## Patterns Discovered
+
+## Gotchas & Warnings
+
+## Iteration Log

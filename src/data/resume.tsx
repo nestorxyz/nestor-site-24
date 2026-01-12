@@ -9,27 +9,43 @@ export const DATA = {
   locationLink: 'https://www.google.com/maps/place/Lima',
   description:
     'builder, former industrial engineer who found more enjoyment in shipping products',
-  summary:
-    'i started coding in 2020 while studying industrial engineering. by 2022, i launched usetreats.com, which led to a role at a YC startup. my tech journey began with a DIY 3D printer in 2019 that ended up frying the Arduino, but i had a lot of fun. later, i cloned the UI of Misfans, added NFT features, and landed my first job in product. now, i’m building in public with [usetreats (a financial chatbot)](https://aiknowapp.vercel.app) and a [gym-geek clothing brand.](https://www.instagram.com/misfit.pe/)',
+  summary: `i started coding in 2020 while studying industrial engineering. my tech journey began with a DIY 3D printer in 2019 that ended up frying the arduino, but i learned to love the process of building.
+
+  that curiosity led me to ship products at YC and 500 Global startups, moving from cloning UIs to architecting complex ai agents. now, i’m building [kubo(an ai accounting platform)](https://holakubo.com)  and exploring the intersection of finance and autonomous software.`,
   avatarUrl: '/me.png',
-  skills: [
-    'React',
-    'Next.js',
-    'Typescript',
-    'Node.js',
-    'Python',
-    'Postgres',
-    'Nest.js',
-    'GraphQL',
-    'TailwindCSS',
-    'Prisma',
-    'React Native',
-    'Voice Agents',
-    'Chat Agents',
-    'OpenAI',
-    'WhatsApp API',
-    'AWS EC2-S3-Lambda-SES',
-  ],
+  skills: {
+    'Core Stack': [
+      'React',
+      'Next.js',
+      'Typescript',
+      'Node.js',
+      'Python',
+      'Postgres',
+    ],
+    'AI Stack': [
+      'OpenAI',
+      'LangGraph',
+      'RAG',
+      'Vector DBs',
+      'Vercel AI SDK',
+      'Gemini/Vertex AI',
+      'Voice Agents',
+      'Chat Agents',
+    ],
+    'Infra & Tools': [
+      'AWS EC2-S3-Lambda-SES',
+      'Docker',
+      'Supabase',
+      'TailwindCSS',
+      'Prisma',
+      'FastAPI',
+      'GraphQL',
+      'Nest.js',
+      'React Native',
+      'WhatsApp API',
+      'n8n',
+    ],
+  },
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/link', icon: LinkIcon, label: 'Link in Bio' },
@@ -100,16 +116,34 @@ export const DATA = {
 
   work: [
     {
-      company: 'Holacasa',
+      company: 'Stealth AI Lab',
+      href: '#',
+      badges: [],
+      location: 'Remote',
+      title: 'AI Engineer',
+      logoUrl: '/stealt.png',
+      start: 'Jul 2025',
+      end: 'Present',
+      bullets: [
+        'Voice AI & Concurrency: Architected a multi-tenant AI voice orchestration platform, designing a fault-tolerant job queue system with Redis and Node.js to throttle and dispatch thousands of simultaneous calls via Vapi/ElevenLabs with real-time analytics.',
+        'Agentic Workflows: Engineered a complex multi-agent fiscal assistant using LangGraph and Google Gemini, implementing a "Supervisor-Worker" architecture to autonomously route intents between specialized agents (Tax Queries, Invoicing, Support) via WhatsApp API.',
+        'Generative UI & RAG: Developed a legal AI workspace using Next.js 15 and Vercel AI SDK, implementing a RAG pipeline to parse contracts (PDF/DOCX) and Generative UI components that stream structured data and tool outputs directly into the chat.',
+      ],
+    },
+    {
+      company: 'Holacasa (YC W23)',
       href: 'https://holacasa.mx',
       badges: [],
       location: 'Remote - Mexico',
       title: 'Software Engineer',
       logoUrl: '/holacasamx.jpeg',
       start: 'Nov 2023',
-      end: 'Present',
-      description:
-        'I developed an AI-driven lead profiling platform using OpenAI and VAPI for automated outreach. Additionally, I led the creation of an AI-driven WhatsApp chatbot that guides clients through the mortgage process with clear next steps. I also redesigned the onboarding and dashboard UI/UX twice, integrating Mixpanel to track and analyze user interactions at every stage.',
+      end: 'Mar 2025',
+      bullets: [
+        'Developed an AI-driven lead profiling platform using OpenAI and VAPI for automated outreach',
+        'Led the creation of an AI-driven WhatsApp chatbot that guides clients through the mortgage process with clear next steps',
+        'Redesigned the onboarding and dashboard UI/UX twice, integrating Mixpanel to track and analyze user interactions at every stage',
+      ],
     },
     {
       company: 'Firmaway',
@@ -120,11 +154,14 @@ export const DATA = {
       logoUrl: '/firmaway.jpeg',
       start: 'Apr 2023',
       end: 'Oct 2023',
-      description:
-        'I launched a web review MVP in 3 days, reducing costs per page from $3 to under $0.10 and cutting review time from 4 days to 1. I unified 13 company data sources into an AWS-hosted datalake and optimized Stripe webhook response time from 10.62 to 8.52 seconds. Additionally, I integrated Quickbooks with Stripe to automate tax handling, database saving, and invoice creation, streamlining processes for the customer experience team.',
+      bullets: [
+        'Launched a web review MVP in 3 days, reducing costs per page from $3 to under $0.10 and cutting review time from 4 days to 1',
+        'Unified 13 company data sources into an AWS-hosted datalake and optimized Stripe webhook response time from 10.62 to 8.52 seconds',
+        'Integrated Quickbooks with Stripe to automate tax handling, database saving, and invoice creation, streamlining processes for the customer experience team',
+      ],
     },
     {
-      company: 'MisFans',
+      company: 'MisFans (500 Global)',
       href: 'https://mis.fans',
       badges: [],
       location: 'Remote - Mexico',
@@ -132,8 +169,13 @@ export const DATA = {
       logoUrl: '/mis_fans.jpeg',
       start: 'Mar 2022',
       end: 'Jan 2023',
-      description:
-        'As a frontend engineer at MisFans, a 500 Latam-backed Mexican startup, I focused on ensuring the product worked seamlessly and felt intuitive. I led the development of reusable components with React.js and TailwindCSS for consistent UX across the platform. Additionally, I built web3 features like Solana NFT carousels and NFT-gated pages, improved conversion rates by 16% through signup flow refactoring, and developed a recovery system for abandoned Stripe checkouts using webhooks.',
+      bullets: [
+        'Focused on ensuring the product worked seamlessly and felt intuitive at a 500 Latam-backed Mexican startup',
+        'Led the development of reusable components with React.js and TailwindCSS for consistent UX across the platform',
+        'Built web3 features like Solana NFT carousels and NFT-gated pages',
+        'Improved conversion rates by 16% through signup flow refactoring',
+        'Developed a recovery system for abandoned Stripe checkouts using webhooks',
+      ],
     },
   ],
   education: [
@@ -151,7 +193,7 @@ export const DATA = {
       degree: 'web development, data science',
       logoUrl: '/platzi_inc.jpeg',
       start: '2020',
-      end: 'present',
+      end: '2024',
     },
     {
       school: 'National Major University of San Marcos',
@@ -165,7 +207,7 @@ export const DATA = {
   projects: [
     {
       title: 'Treats',
-      href: 'https://aiknowapp.vercel.app',
+      href: 'https://lukai-web.vercel.app',
       dates: 'Sep 2024 - Present',
       active: true,
       description:
