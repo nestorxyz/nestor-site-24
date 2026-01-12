@@ -61,7 +61,7 @@ export default function Chat() {
 
   return (
     <main className="flex flex-col flex-1 h-screen w-full bg-[#121212] text-gray-200">
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex relative flex-col">
         {showHeader && messages.length === 0 ? (
           <PortfolioHeader onCategorySelect={handleCategorySelect} />
         ) : (
@@ -79,6 +79,9 @@ export default function Chat() {
                       : 'self-end bg-[#2a9d8f] text-white'
                   )}
                 >
+                  <div className="text-xs font-medium !text-pink-600 mb-1">
+                    {message.role}
+                  </div>
                   {message.content.length > 0 ? (
                     message.content
                   ) : message?.parts?.[0].type === 'tool-invocation' ? (

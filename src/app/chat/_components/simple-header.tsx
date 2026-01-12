@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function SimpleHeader() {
   return (
-    <div className="sticky top-0 z-10 flex items-center gap-3 border-b border-gray-800 bg-[#121212]/90 py-3 backdrop-blur-sm">
+    <div className="top-0 z-10 flex mb-6 items-center gap-3 border-b border-gray-800 bg-[#121212]/90 py-3 backdrop-blur-sm">
       <div className="relative h-10 w-10">
         <Image
           src="/brain-icon.svg"
