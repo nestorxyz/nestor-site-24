@@ -138,8 +138,8 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve built my ideas since i started coding. Here are my
-                  favorites.
+                  here is what i&apos;m actively building, maintaining, and
+                  iterating on right now.
                 </p>
               </div>
             </div>
@@ -178,12 +178,9 @@ export default function Page() {
                   I like building things
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I attended{' '}
-                  {DATA.hackathons.length}+ hackathons. People from around the
-                  country would come together and build incredible things in 2-3
-                  days. It was eye-opening to see the endless possibilities
-                  brought to life by a group of motivated and passionate
-                  individuals.
+                  building is the best way to learn, so here is a timeline of
+                  the experiments and products i&apos;ve shipped since 2020
+                  (note: most are legacy projects and are no longer maintained)
                 </p>
               </div>
             </div>
