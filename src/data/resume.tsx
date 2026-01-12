@@ -206,6 +206,67 @@ export const DATA = {
   ],
   projects: [
     {
+      title: 'Kubo',
+      href: 'https://holakubo.com',
+      dates: 'Jan 2025 - Present',
+      active: true,
+      description:
+        'Kubo is an AI-powered accounting automation platform that bridges the gap between legacy ERPs and modern infrastructure. It uses Google Gemini to parse unstructured PDF invoices into standardized JSON and orchestrates bulk reconciliation workflows, ensuring 100% tax compliance for SMBs.',
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'Python (FastAPI)',
+        'Google Gemini',
+        'LangGraph',
+        'AWS Lambda',
+        'PostgreSQL',
+        'Redis',
+      ],
+      links: [
+        {
+          type: 'Website',
+          href: 'https://holakubo.com',
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/kubo_360p.mp4',
+    },
+    {
+      title: 'DoryAI',
+      href: 'https://www.doryai.app',
+      dates: 'Nov 2024 - Present',
+      active: true,
+      description:
+        'DoryAI is an AI link assistant that organizes your digital life directly through WhatsApp. It intelligently tags, categorizes, and stores saved links with context and memory, transforming scattered URLs into a searchable knowledge base for research, travel, and inspiration.',
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'WhatsApp API',
+        'OpenAI',
+        'PostgreSQL',
+        'Prisma',
+        'TailwindCSS',
+        'Vercel',
+      ],
+      links: [
+        {
+          type: 'Website',
+          href: 'https://www.doryai.app',
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: 'WhatsApp Assistant',
+          href: 'https://wa.me/51970899781',
+          icon: <Icons.whatsapp className="size-3" />,
+        },
+      ],
+      image: '',
+      video:
+        'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/doryai_360p.mp4',
+    },
+    {
       title: 'Treats',
       href: 'https://lukai-web.vercel.app',
       dates: 'Sep 2024 - Present',
