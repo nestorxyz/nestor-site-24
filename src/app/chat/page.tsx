@@ -1,6 +1,7 @@
 'use client';
 
 import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport } from 'ai';
 import { Button } from '@/components/ui/button';
 import {
   Tooltip,
@@ -16,12 +17,25 @@ import { PortfolioHeader } from './_components/portfolio-header';
 import { SimpleHeader } from './_components/simple-header';
 
 export default function Chat() {
-  const { messages, input, setInput, append } = useChat({
-    api: '/api/chat',
+  const { messages, sendMessage, error, status } = useChat({
+    transport: new DefaultChatTransport({
+      api: '/api/chat',
+    }),
+    onError: (error) => {
+      console.error('Chat error:', error);
+    },
+    onFinish: (message) => {
+      console.log('Message finished:', message);
+    },
   });
+
+  console.log('Messages:', messages);
+  console.log('Error:', error);
+  console.log('Status:', status);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showHeader, setShowHeader] = useState(true);
+  const [input, setInput] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<
     'skills' | 'projects' | 'contact' | null
   >(null);
@@ -30,7 +44,7 @@ export default function Chat() {
     e.preventDefault();
     if (!input.trim()) return;
 
-    void append({ content: input, role: 'user' });
+    sendMessage({ text: input });
     setInput('');
     setShowHeader(false);
   };
@@ -43,7 +57,7 @@ export default function Chat() {
   };
 
   const handlePredefinedQuestion = (question: string) => {
-    void append({ content: question, role: 'user' });
+    sendMessage({ text: question });
     setShowHeader(false);
     setSelectedCategory(null);
   };
@@ -68,9 +82,9 @@ export default function Chat() {
           <>
             <SimpleHeader />
             <div className="flex-1 my-4 flex flex-col gap-4 overflow-y-auto px-4 md:px-6 pb-4">
-              {messages.map((message, index) => (
+              {messages.map((message) => (
                 <div
-                  key={index}
+                  key={message.id}
                   data-role={message.role}
                   className={cn(
                     'max-w-[85%] rounded-xl px-4 py-3 text-sm',
@@ -82,8 +96,12 @@ export default function Chat() {
                   <div className="text-xs font-medium !text-pink-600 mb-1">
                     {message.role}
                   </div>
-                  {message.content.length > 0 ? (
-                    message.content
+                  {message.parts.length > 0 ? (
+                    message.parts.map((part, index) =>
+                      part.type === 'text' ? (
+                        <span key={index}>{part.text}</span>
+                      ) : null
+                    )
                   ) : (
                     <span className="italic font-light text-gray-400">
                       Searching knowledge base...
@@ -91,6 +109,22 @@ export default function Chat() {
                   )}
                 </div>
               ))}
+              {(status === 'submitted' || status === 'streaming') && (
+                <div className="max-w-[85%] self-start bg-gray-800 text-gray-200 rounded-xl px-4 py-3 text-sm">
+                  <div className="text-xs font-medium !text-pink-600 mb-1">
+                    assistant
+                  </div>
+                  <span className="italic font-light text-gray-400">
+                    Thinking...
+                  </span>
+                </div>
+              )}
+              {error && (
+                <div className="max-w-[85%] self-start bg-red-900/30 border border-red-500 text-red-200 rounded-xl px-4 py-3 text-sm">
+                  <div className="text-xs font-medium mb-1">Error</div>
+                  {error.message}
+                </div>
+              )}
               <div ref={messagesEndRef} />
             </div>
           </>
@@ -115,6 +149,7 @@ export default function Chat() {
           onChange={(e) => setInput(e.target.value)}
           value={input}
           placeholder="Ask me anything..."
+          disabled={status !== 'ready'}
           className="flex-1 bg-transparent text-gray-200 placeholder:text-gray-500 focus:outline-none"
         />
         <Tooltip>
@@ -122,6 +157,8 @@ export default function Chat() {
             <Button
               variant="ghost"
               size="sm"
+              type="submit"
+              disabled={status !== 'ready'}
               className="absolute bottom-1 right-1 size-6 rounded-full"
             >
               <ArrowUpIcon size={16} className="text-white shrink-0" />
