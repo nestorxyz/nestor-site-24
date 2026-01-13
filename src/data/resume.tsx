@@ -269,8 +269,8 @@ export const DATA = {
   ],
   hackathons: [
     {
-      title: 'Treats',
-      dates: 'Sep 2024 - Present',
+      title: 'Lukai',
+      dates: 'Sep 2024 - Jun 2025',
       location: 'Remote',
       description:
         'Treats is an AI-powered finance assistant on WhatsApp that helps you track expenses, income, and savings. It uses AI to categorize transactions and provide personalized insights, making budgeting and financial management easy and automated.',
@@ -292,7 +292,7 @@ export const DATA = {
     },
     {
       title: 'Misfit',
-      dates: 'Oct 2024 - Present',
+      dates: 'Oct 2024 - Apr 2025',
       location: 'Lima, Peru',
       description:
         'GymGeek clothing brand that combines fitness and geek culture. We design and sell gym wear that features your favorite superheroes, anime characters, and video game icons.',
@@ -346,7 +346,7 @@ export const DATA = {
       links: [
         {
           title: 'Website',
-          href: 'https://automatic.chat',
+          href: 'https://konto.vercel.app',
           icon: <Icons.globe className="size-3" />,
         },
         {

@@ -84,12 +84,11 @@ export default function Chat() {
                   </div>
                   {message.content.length > 0 ? (
                     message.content
-                  ) : message?.parts?.[0].type === 'tool-invocation' ? (
-                    <span className="italic font-light">
-                      {'calling tool: ' +
-                        message?.parts?.[0].toolInvocation.toolName}
+                  ) : (
+                    <span className="italic font-light text-gray-400">
+                      Searching knowledge base...
                     </span>
-                  ) : null}
+                  )}
                 </div>
               ))}
               <div ref={messagesEndRef} />
