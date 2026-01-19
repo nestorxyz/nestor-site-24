@@ -3,19 +3,14 @@
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import { Button } from '@/components/ui/button';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import { AutoResizeTextarea } from '@/components/ui/autoresize-textarea';
-import { ArrowUpIcon, PlusIcon, ImagePlusIcon, MicIcon } from 'lucide-react';
+import { ArrowUpIcon, MicIcon } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import { PredefinedQuestions } from './_components/predefined-questions';
 import { PortfolioHeader } from './_components/portfolio-header';
 import { PortfolioGrid } from './_components/portfolio-grid';
-import { SimpleHeader } from './_components/simple-header';
+import { ChatMessage } from './_components/chat-message';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Chat() {
@@ -73,21 +68,7 @@ export default function Chat() {
   }, [messages, hasMessages]);
 
   return (
-    <main className="flex flex-col flex-1 h-full w-full bg-transparent text-gray-200 overflow-hidden relative">
-      {/* Background/Structure for Active Chat Header */}
-      <AnimatePresence>
-        {hasMessages && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-0 left-0 right-0 z-20"
-          >
-            <SimpleHeader />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <main className="flex flex-col flex-1 h-full max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
       <div
         className={cn(
           'flex-1 flex flex-col relative transition-all duration-500 ease-in-out',
@@ -114,44 +95,22 @@ export default function Chat() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex-1 w-full overflow-y-auto px-4 md:px-6 pt-20 pb-4 scroll-smooth"
+            className="flex-1 w-full overflow-y-auto px-4 md:px-6 pb-4 scroll-smooth"
           >
             <div className="flex flex-col gap-4 max-w-4xl mx-auto">
               {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={cn(
-                    'max-w-[85%] rounded-xl px-4 py-3 text-sm',
-                    message.role === 'assistant'
-                      ? 'self-start bg-gray-800 text-gray-200'
-                      : 'self-end bg-[#2a9d8f] text-white',
-                  )}
-                >
-                  <div className="text-xs font-medium !text-pink-600 mb-1">
-                    {message.role}
-                  </div>
-                  {message.parts.length > 0 ? (
-                    message.parts.map((part, index) =>
-                      part.type === 'text' ? (
-                        <span key={index}>{part.text}</span>
-                      ) : null,
-                    )
-                  ) : (
-                    <span className="italic font-light text-gray-400">
-                      Searching knowledge base...
-                    </span>
-                  )}
-                </div>
+                <ChatMessage key={message.id} message={message} />
               ))}
 
               {(status === 'submitted' || status === 'streaming') && (
-                <div className="max-w-[85%] self-start bg-gray-800 text-gray-200 rounded-xl px-4 py-3 text-sm">
-                  <div className="text-xs font-medium !text-pink-600 mb-1">
-                    assistant
+                <div className="flex w-full mb-6 justify-start">
+                  <div className="flex flex-col items-start max-w-[85%] md:max-w-[80%]">
+                    <div className="relative px-5 py-3.5 text-sm md:text-base bg-transparent text-gray-100 min-h-[40px] flex items-center">
+                      <span className="animate-pulse italic font-light text-gray-400">
+                        Thinking...
+                      </span>
+                    </div>
                   </div>
-                  <span className="italic font-light text-gray-400">
-                    Thinking...
-                  </span>
                 </div>
               )}
 

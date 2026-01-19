@@ -22,11 +22,11 @@ function getFileSearchStoreId(): string | null {
     const manifestPath = path.join(
       process.cwd(),
       'rag-data',
-      '.sync-manifest.json'
+      '.sync-manifest.json',
     );
     if (fs.existsSync(manifestPath)) {
       const manifest: Manifest = JSON.parse(
-        fs.readFileSync(manifestPath, 'utf-8')
+        fs.readFileSync(manifestPath, 'utf-8'),
       );
       if (manifest.storeId) {
         return manifest.storeId;
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
     console.log('Starting stream with model: gemini-2.5-flash');
 
     const result = streamText({
-      model: google('gemini-2.5-flash'),
+      model: google('gemini-2.5-flash-lite'),
       messages: await convertToModelMessages(messages),
       system: `You are a helpful AI assistant for Nestor's portfolio website. Your role is to answer questions about Nestor's professional background, technical skills, projects, and career.
 
