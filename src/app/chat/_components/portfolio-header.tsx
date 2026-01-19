@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export function PortfolioHeader() {
   return (
-    <div className="flex flex-col justify-start items-start text-left">
+    <div className="flex flex-col justify-start pt-12 sm:pt-24 items-start text-left">
       <h1 className="mb-2 text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
         helloo
       </h1>

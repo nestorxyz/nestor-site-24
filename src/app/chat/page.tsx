@@ -68,10 +68,10 @@ export default function Chat() {
   }, [messages, hasMessages]);
 
   return (
-    <main className="flex flex-col flex-1 h-full max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
+    <main className="flex flex-col h-[calc(100vh-8rem)] sm:h-[calc(100vh-5rem)] max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
       <div
         className={cn(
-          'flex-1 flex flex-col relative transition-all duration-500 ease-in-out',
+          'flex-1 flex flex-col relative overflow-hidden transition-all duration-500 ease-in-out',
           hasMessages ? 'justify-between' : 'justify-center items-center',
         )}
       >
@@ -95,7 +95,7 @@ export default function Chat() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex-1 w-full overflow-y-auto px-4 md:px-6 pb-4 scroll-smooth"
+            className="flex-1 w-full min-h-0 overflow-y-auto pt-4 sm:pt-8 px-4 md:px-6 scroll-smooth"
           >
             <div className="flex flex-col gap-4 max-w-4xl mx-auto">
               {messages.map((message) => (
@@ -103,7 +103,7 @@ export default function Chat() {
               ))}
 
               {(status === 'submitted' || status === 'streaming') && (
-                <div className="flex w-full mb-6 justify-start">
+                <div className="flex w-full justify-start">
                   <div className="flex flex-col items-start max-w-[85%] md:max-w-[80%]">
                     <div className="relative px-5 py-3.5 text-sm md:text-base bg-transparent text-gray-100 min-h-[40px] flex items-center">
                       <span className="animate-pulse italic font-light text-gray-400">
@@ -143,7 +143,7 @@ export default function Chat() {
               disabled={
                 status !== 'ready' && status !== 'error' && messages.length > 0
               }
-              className="w-full bg-transparent text-gray-200 placeholder:text-gray-500 focus:outline-none min-h-[60px] p-4 resize-none text-lg"
+              className="w-full bg-transparent text-gray-200 placeholder:text-gray-500 focus:outline-none min-h-[60px] p-4 resize-none text-base"
             />
 
             <div className="flex items-center justify-end px-2 pb-2">

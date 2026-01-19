@@ -12,7 +12,7 @@ const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
-    <main className="flex flex-col max-w-2xl mx-auto min-h-[100dvh] space-y-10">
+    <main className="flex flex-col py-12 sm:py-24 max-w-2xl mx-auto min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
