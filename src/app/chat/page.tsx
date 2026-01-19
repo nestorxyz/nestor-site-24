@@ -73,7 +73,7 @@ export default function Chat() {
   }, [messages, hasMessages]);
 
   return (
-    <main className="flex flex-col h-screen w-full bg-transparent text-gray-200 overflow-hidden relative">
+    <main className="flex flex-col flex-1 h-full w-full bg-transparent text-gray-200 overflow-hidden relative">
       {/* Background/Structure for Active Chat Header */}
       <AnimatePresence>
         {hasMessages && (

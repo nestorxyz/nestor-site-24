@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { HomeIcon, LinkIcon } from 'lucide-react';
+import { HomeIcon, LinkIcon, BotMessageSquare } from 'lucide-react';
 
 export const DATA = {
   name: 'Nestor Mamani',
@@ -48,6 +48,7 @@ export const DATA = {
   },
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
+    { href: '/chat', icon: BotMessageSquare, label: 'AI Chat' },
     { href: '/link', icon: LinkIcon, label: 'Link in Bio' },
     /* { href: '/blog', icon: NotebookIcon, label: 'Blog' }, */
   ],
