@@ -68,7 +68,7 @@ export default function Chat() {
   }, [messages, hasMessages]);
 
   return (
-    <main className="flex flex-col h-[calc(100vh-8rem)] sm:h-[calc(100vh-5rem)] max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
+    <main className="flex flex-col h-[calc(100vh-5rem)] sm:h-[calc(100vh-5rem)] max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
       <div
         className={cn(
           'flex-1 flex flex-col relative overflow-hidden transition-all duration-500 ease-in-out',
