@@ -52,23 +52,20 @@ export function PredefinedQuestions({
     category === 'skills'
       ? skillsQuestions
       : category === 'projects'
-      ? projectsQuestions
-      : category === 'contact'
-      ? contactQuestions
-      : generalQuestions;
+        ? projectsQuestions
+        : category === 'contact'
+          ? contactQuestions
+          : generalQuestions;
 
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-wrap gap-2 justify-center">
       {questions.map((question, index) => (
         <Button
           key={index}
-          variant="ghost"
-          className="justify-start rounded-full border border-gray-700 bg-gray-800 px-4 py-2 text-left text-sm text-gray-300 hover:bg-gray-700 hover:text-white"
+          variant="outline"
+          className="rounded-full border-gray-700 bg-transparent text-gray-400 hover:bg-gray-800 hover:text-white text-xs h-8 px-4"
           onClick={() => onSelectQuestion(question)}
         >
-          <span className="mr-2 flex h-5 w-5 items-center justify-center rounded-full bg-gray-700 text-xs">
-            ?
-          </span>
           {question}
         </Button>
       ))}
