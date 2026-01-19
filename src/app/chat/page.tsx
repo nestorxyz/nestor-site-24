@@ -95,7 +95,7 @@ export default function Chat() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex-1 w-full min-h-0 overflow-y-auto pt-4 sm:pt-8 px-4 md:px-6 scroll-smooth"
+            className="flex-1 w-full min-h-0 overflow-y-auto pt-4 sm:pt-8 scroll-smooth"
           >
             <div className="flex flex-col gap-4 max-w-4xl mx-auto">
               {messages.map((message) => (

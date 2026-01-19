@@ -63,7 +63,9 @@ export function PredefinedQuestions({
         <Button
           key={index}
           variant="outline"
-          className="rounded-full border-gray-700 bg-transparent text-gray-400 hover:bg-gray-800 hover:text-white text-xs h-8 px-4"
+          className={`rounded-full border-gray-700 bg-transparent text-gray-400 hover:bg-gray-800 hover:text-white text-xs h-auto py-2 px-4 whitespace-normal text-center ${
+            index >= 3 ? 'hidden md:inline-flex' : ''
+          }`}
           onClick={() => onSelectQuestion(question)}
         >
           {question}
