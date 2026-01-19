@@ -180,7 +180,7 @@ export default function Chat() {
               onKeyDown={handleKeyDown}
               onChange={(e) => setInput(e.target.value)}
               value={input}
-              placeholder="Ask Gemini 3"
+              placeholder="ask sth about Nestor"
               disabled={
                 status !== 'ready' && status !== 'error' && messages.length > 0
               }
