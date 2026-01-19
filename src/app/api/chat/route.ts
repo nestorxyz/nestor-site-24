@@ -1,5 +1,7 @@
 import { google } from '@ai-sdk/google';
 import { streamText, convertToModelMessages, UIMessage } from 'ai';
+import { Ratelimit } from '@upstash/ratelimit';
+import { Redis } from '@upstash/redis';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -42,6 +44,27 @@ function getFileSearchStoreId(): string | null {
 export async function POST(req: Request) {
   try {
     const { messages }: { messages: UIMessage[] } = await req.json();
+
+    // Check for API keys
+    if (
+      process.env.UPSTASH_REDIS_REST_URL &&
+      process.env.UPSTASH_REDIS_REST_TOKEN
+    ) {
+      const ratelimit = new Ratelimit({
+        redis: Redis.fromEnv(),
+        limiter: Ratelimit.slidingWindow(10, '1 d'),
+        analytics: true,
+      });
+
+      const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1';
+      const { success } = await ratelimit.limit(ip);
+
+      if (!success) {
+        return new Response('Too many requests. Please try again later.', {
+          status: 429,
+        });
+      }
+    }
 
     console.log('Received messages:', messages);
 
