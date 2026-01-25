@@ -1,5 +1,8 @@
 'use client';
 
+import { useState } from 'react';
+import { Icons } from '@/components/icons';
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -8,8 +11,11 @@ import { DATA } from '@/data/resume';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Mail, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Hero() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+
   return (
     <section id="hero" className="py-7 pt-4 sm:pt-24 sm:pb-10">
       <div className="w-full relative">
@@ -163,9 +169,15 @@ export function Hero() {
                     {DATA.work.map((work, idx) => (
                       <div
                         key={idx}
-                        className="bg-muted px-4 py-2 text-sm text-muted-foreground"
+                        className="relative h-8 w-auto px-2 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
                       >
-                        {work.company}
+                        <Image
+                          src={work.logoUrl}
+                          alt={work.company}
+                          width={100}
+                          height={100}
+                          className="h-full w-auto object-contain"
+                        />
                       </div>
                     ))}
                   </div>
@@ -179,9 +191,15 @@ export function Hero() {
                     {DATA.education.map((edu, idx) => (
                       <div
                         key={idx}
-                        className="bg-muted px-4 py-2 text-sm text-muted-foreground"
+                        className="relative h-8 w-auto px-2 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
                       >
-                        {edu.school}
+                        <Image
+                          src={edu.logoUrl}
+                          alt={edu.school}
+                          width={100}
+                          height={100}
+                          className="h-full w-auto object-contain"
+                        />
                       </div>
                     ))}
                   </div>
@@ -191,37 +209,45 @@ export function Hero() {
           </div>
 
           {/* Right Column - Media & Projects */}
-          <div className="desktop-nav:max-w-full hidden md:grid desktop-nav:flex desktop-nav:flex-row gap-4 h-fit">
+          <div className="md:max-w-full hidden md:flex desktop-nav:flex-row gap-4 h-fit">
             {/* TikTok Video - Spans full height of first row or takes significant space */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="col-span-1 row-span-2 relative overflow-hidden rounded-lg bg-black group"
+              className="flex-1 aspect-[9/16] relative rounded-2xl overflow-hidden bg-black"
             >
-              {/* Placeholder for TikTok video. Using a simple cover or loop if available. 
-                 The mock shows "Video de tiktok". */}
-              <div className="absolute inset-0 flex items-center justify-center text-white/50 bg-neutral-800">
-                {/* Trying to use the Treats video as it seems relevant or just a placeholder text */}
-                <span className="text-center p-4">Video de tiktok</span>
-                {/* If we have a video URL we could put it here */}
+              {/* Placeholder Loading State */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center bg-black z-20 transition-opacity duration-500 ${
+                  isVideoLoaded
+                    ? 'opacity-0 pointer-events-none'
+                    : 'opacity-100'
+                }`}
+              >
+                <motion.div
+                  initial={{ scale: 1.5 }}
+                  animate={{ scale: 1 }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <Icons.tiktok className="w-16 h-16 text-white" />
+                </motion.div>
               </div>
+
               <video
-                src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/treats%20(1080p).mp4"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity"
+                src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7525667982769425670_hd.mp4"
+                className="w-full h-full object-cover"
                 autoPlay
                 muted
                 loop
                 playsInline
+                onLoadedData={() => setIsVideoLoaded(true)}
               />
-              <div className="absolute bottom-4 left-4 z-10">
-                <Badge
-                  variant="secondary"
-                  className="bg-green-600 text-white border-none"
-                >
-                  I would rather take
-                </Badge>
-              </div>
             </motion.div>
 
             {/* Project 1: Kubo */}
@@ -229,31 +255,26 @@ export function Hero() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="col-span-1 bg-secondary/20 rounded-lg p-6 flex flex-col justify-center items-center text-center hover:bg-secondary/30 transition-colors cursor-pointer"
+              className="md:flex hidden flex-1"
             >
-              <Link
-                href="https://holakubo.com"
-                target="_blank"
-                className="w-full h-full flex items-center justify-center"
-              >
-                <h3 className="text-2xl font-medium">Kubo</h3>
-              </Link>
-            </motion.div>
+              <div className="grid grid-cols-1 gap-4 grow">
+                <Link
+                  href="https://holakubo.com"
+                  target="_blank"
+                  className="w-full p-0 border-0 bg-transparent cursor-pointer relative"
+                >
+                  <h3 className="text-2xl font-medium">Kubo</h3>
+                </Link>
+                {/* Project 2: DoryAI */}
 
-            {/* Project 2: DoryAI */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="col-span-1 bg-secondary/20 rounded-lg p-6 flex flex-col justify-center items-center text-center hover:bg-secondary/30 transition-colors cursor-pointer"
-            >
-              <Link
-                href="https://www.doryai.app"
-                target="_blank"
-                className="w-full h-full flex items-center justify-center"
-              >
-                <h3 className="text-2xl font-medium">DoryAI</h3>
-              </Link>
+                <Link
+                  href="https://www.doryai.app"
+                  target="_blank"
+                  className="w-full p-0 border-0 bg-transparent cursor-pointer relative"
+                >
+                  <h3 className="text-2xl font-medium">DoryAI</h3>
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
