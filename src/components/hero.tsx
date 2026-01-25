@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Icons } from '@/components/icons';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -9,12 +9,28 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { DATA } from '@/data/resume';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, MessageCircle } from 'lucide-react';
+import {
+  ArrowRight,
+  Download,
+  Mail,
+  MessageCircle,
+  Volume2,
+  VolumeX,
+} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export function Hero() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
 
   return (
     <section id="hero" className="py-7 pt-4 sm:pt-24 sm:pb-10">
@@ -215,7 +231,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex-1 aspect-[9/16] relative rounded-2xl overflow-hidden bg-black"
+              className="flex-1 aspect-[9/16] relative rounded-2xl overflow-hidden bg-black group"
             >
               {/* Placeholder Loading State */}
               <div
@@ -239,14 +255,36 @@ export function Hero() {
                 </motion.div>
               </div>
 
+              <div
+                className={`absolute top-4 right-4 z-30 transition-opacity duration-300 ${
+                  isMuted ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}
+              >
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleMute();
+                  }}
+                  className="p-2 bg-black/50 backdrop-blur-sm rounded-full text-white hover:bg-black/70 transition-colors"
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-4 h-4" />
+                  ) : (
+                    <Volume2 className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
+
               <video
+                ref={videoRef}
                 src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7525667982769425670_hd.mp4"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer"
                 autoPlay
-                muted
+                muted={isMuted}
                 loop
                 playsInline
                 onLoadedData={() => setIsVideoLoaded(true)}
+                onClick={toggleMute}
               />
             </motion.div>
 
