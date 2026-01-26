@@ -432,7 +432,7 @@ export function Hero() {
             </div>
           </div>
         </section>
-        <DialogContent className="max-w-4xl h-[90vh] w-full bg-[#0a0a0a] border-border p-0 pt-3 overflow-hidden">
+        <DialogContent className="max-w-4xl h-[100dvh] md:h-[90vh] w-full bg-[#0a0a0a] border-border p-0 pt-10 lg:pt-3 overflow-hidden">
           <VisuallyHidden>
             <DialogTitle>Chat with Nestor&apos;s AI</DialogTitle>
           </VisuallyHidden>

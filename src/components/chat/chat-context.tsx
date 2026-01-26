@@ -40,7 +40,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       console.error('Chat error:', error);
     },
     onFinish: (message) => {
-      console.log('Message finished:', message);
+      //console.log('Message finished:', message);
     },
   });
 
