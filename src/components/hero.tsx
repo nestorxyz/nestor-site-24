@@ -3,20 +3,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { Icons } from '@/components/icons';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { DATA } from '@/data/resume';
 import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  Download,
-  Mail,
-  MessageCircle,
-  Volume2,
-  VolumeX,
-} from 'lucide-react';
+import { Download, Mail, MessageCircle, Volume2, VolumeX } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -110,10 +100,10 @@ export function Hero() {
                     </p>
                   </div>
 
-                  <div className="hidden lg:block">
+                  <div className="block">
                     <div className="flex gap-3 flex-wrap">
                       <DialogTrigger asChild>
-                        <button className="flex select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-primary bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-[13px] rounded-full border-none shadow-md">
+                        <button className="flex select-none items-center justify-center md:text-lgfont-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-primary bg-primary text-primary-foreground hover:bg-primary/90 lg:px-5 lg:py-3 px-3 py-2 rounded-full border-none shadow-md">
                           <MessageCircle className="mr-2 h-4 w-4" />
                           chat with my AI
                         </button>
@@ -123,7 +113,7 @@ export function Hero() {
                         href="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/CV%20-%20Nestor%20Mamani%20SWE.pdf"
                         target="_blank"
                       >
-                        <button className="flex select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-5 py-3 rounded-full shadow-md">
+                        <button className="flex select-none items-center justify-center lg:text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground lg:px-5 lg:py-3 px-3 py-2 rounded-full shadow-md">
                           <Download className="mr-2 h-4 w-4" />
                           download CV
                         </button>
@@ -132,20 +122,20 @@ export function Hero() {
                         href={DATA.contact.social.Instagram.url}
                         target="_blank"
                       >
-                        <button className="flex select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-5 py-3 rounded-full shadow-md">
+                        <button className="flex select-none items-center justify-center lg:text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground lg:px-5 lg:py-3 px-3 py-2 rounded-full shadow-md">
                           <Mail className="mr-2 h-4 w-4" />
                           contact
                         </button>
                       </a>
                       <a href={DATA.contact.social.GitHub.url} target="_blank">
-                        <button className="flex h-[54px] w-[54px] select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-3 py-3 rounded-full shadow-md aspect-square">
+                        <button className="flex h-[42px] w-[42px] lg:h-[54px] lg:w-[54px] select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-3 py-3 rounded-full shadow-md aspect-square">
                           <Icons.github className="h-6 w-6" />
                         </button>
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex pt-6 mt-auto flex-wrap text-[#adb2ae] gap-3 text-xs font-medium">
+                  <div className="flex pt-6 flex-wrap text-[#adb2ae] gap-3 text-xs font-medium">
                     <span className="flex items-center gap-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +227,7 @@ export function Hero() {
                         {DATA.work.map((work, idx) => (
                           <div
                             key={idx}
-                            className="relative rounded-lg overflow-hidden h-16 w-auto transition-opacity"
+                            className="relative rounded-lg overflow-hidden lg:h-16 h-14 w-auto transition-opacity"
                           >
                             <Image
                               src={work.logoUrl}
@@ -261,7 +251,7 @@ export function Hero() {
                             href={edu.href}
                             target="_blank"
                             key={idx}
-                            className="relative cursor-pointer rounded-lg hover:scale-110 transform transition-all overflow-hidden h-16 w-auto"
+                            className="relative cursor-pointer rounded-lg hover:scale-110 transform transition-all overflow-hidden lg:h-16 h-14 w-auto"
                           >
                             <Image
                               src={edu.logoUrl}
@@ -279,7 +269,7 @@ export function Hero() {
               </div>
 
               {/* Right Column - Media & Projects */}
-              <div className="md:max-w-full hidden md:flex desktop-nav:flex-row gap-4 h-fit">
+              <div className="md:max-w-full flex desktop-nav:flex-row gap-4 h-fit">
                 {/* TikTok Video - Spans full height of first row or takes significant space */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -377,7 +367,7 @@ export function Hero() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="md:flex hidden flex-1"
+                  className="md:flex flex-1"
                 >
                   <div className="flex flex-col gap-4 h-full w-full">
                     {/* Project 1: Kubo */}
