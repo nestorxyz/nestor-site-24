@@ -36,6 +36,7 @@ export function PredefinedQuestions({
     'Do you offer consultation services?',
     'Where are you located?',
     'Can we schedule a call to discuss my project?',
+    'Where do you prefer to be contacted?',
   ];
 
   const generalQuestions = [

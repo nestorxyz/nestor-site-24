@@ -1,74 +1,42 @@
 'use client';
 
-import { useChat } from '@ai-sdk/react';
-import { DefaultChatTransport } from 'ai';
 import { Button } from '@/components/ui/button';
 import { AutoResizeTextarea } from '@/components/ui/autoresize-textarea';
 import { ArrowUpIcon, MicIcon } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { PredefinedQuestions } from './_components/predefined-questions';
-import { PortfolioHeader } from './_components/portfolio-header';
-import { PortfolioGrid } from './_components/portfolio-grid';
-import { ChatMessage } from './_components/chat-message';
+import { PredefinedQuestions } from '@/components/chat/predefined-questions';
+import { PortfolioHeader } from '@/components/chat/portfolio-header';
+import { PortfolioGrid } from '@/components/chat/portfolio-grid';
+import { ChatMessage } from '@/components/chat/chat-message';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useChatContext } from '@/components/chat/chat-context';
+import { useEffect } from 'react';
 
-export default function Chat() {
-  const { messages, sendMessage, error, status } = useChat({
-    transport: new DefaultChatTransport({
-      api: '/api/chat',
-    }),
-    onError: (error) => {
-      console.error('Chat error:', error);
-    },
-    onFinish: (message) => {
-      console.log('Message finished:', message);
-    },
-  });
+export function ChatInterface() {
+  const {
+    messages,
+    input,
+    setInput,
+    handleSubmit,
+    handleKeyDown,
+    status,
+    error,
+    selectedCategory,
+    handleCategorySelect,
+    handlePredefinedQuestion,
+    messagesEndRef,
+    hasMessages,
+  } = useChatContext();
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [input, setInput] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<
-    'skills' | 'projects' | 'contact' | null
-  >(null);
-
-  const hasMessages = messages.length > 0;
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
-    sendMessage({ text: input });
-    setInput('');
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e as unknown as React.FormEvent<HTMLFormElement>);
-    }
-  };
-
-  const handlePredefinedQuestion = (question: string) => {
-    sendMessage({ text: question });
-    setSelectedCategory(null);
-  };
-
-  const handleCategorySelect = (
-    category: 'skills' | 'projects' | 'contact',
-  ) => {
-    setSelectedCategory(category);
-  };
-
-  // Scroll to bottom when messages change
+  // Scroll to bottom on mount if messages exist
   useEffect(() => {
-    if (hasMessages) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (hasMessages && messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'auto' });
     }
-  }, [messages, hasMessages]);
+  }, [hasMessages, messagesEndRef]);
 
   return (
-    <main className="flex flex-col h-[calc(100vh-5rem)] sm:h-[calc(100vh-5rem)] max-w-[760px] mx-auto w-full bg-transparent text-gray-200 overflow-hidden relative">
+    <div className="flex flex-col w-full bg-transparent text-gray-200 overflow-hidden relative">
       <div
         className={cn(
           'flex-1 flex flex-col relative overflow-hidden transition-all duration-500 ease-in-out',
@@ -97,7 +65,7 @@ export default function Chat() {
             animate={{ opacity: 1 }}
             className="flex-1 w-full min-h-0 overflow-y-auto pt-4 sm:pt-8 scroll-smooth"
           >
-            <div className="flex flex-col gap-4 max-w-4xl mx-auto">
+            <div className="flex flex-col gap-4 max-w-4xl mx-auto px-4">
               {messages.map((message) => (
                 <ChatMessage key={message.id} message={message} />
               ))}
@@ -147,23 +115,6 @@ export default function Chat() {
             />
 
             <div className="flex items-center justify-end px-2 pb-2">
-              {/* <div className="flex items-center gap-1">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-9 w-9 text-gray-400 hover:text-white rounded-full hover:bg-gray-800"
-                >
-                  <PlusIcon size={20} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-9 w-9 text-gray-400 hover:text-white rounded-full hover:bg-gray-800"
-                >
-                  <ImagePlusIcon size={18} />
-                </Button>
-              </div> */}
-
               <div className="flex items-center gap-2">
                 {input.trim() || true ? (
                   <Button
@@ -220,6 +171,6 @@ export default function Chat() {
           )}
         </AnimatePresence>
       </div>
-    </main>
+    </div>
   );
 }
