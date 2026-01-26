@@ -116,7 +116,7 @@ export const DATA = {
   },
 
   work: [
-    {
+    /*  {
       company: 'Stealth AI Lab',
       href: '#',
       badges: [],
@@ -130,7 +130,7 @@ export const DATA = {
         'Agentic Workflows: Engineered a complex multi-agent fiscal assistant using LangGraph and Google Gemini, implementing a "Supervisor-Worker" architecture to autonomously route intents between specialized agents (Tax Queries, Invoicing, Support) via WhatsApp API.',
         'Generative UI & RAG: Developed a legal AI workspace using Next.js 15 and Vercel AI SDK, implementing a RAG pipeline to parse contracts (PDF/DOCX) and Generative UI components that stream structured data and tool outputs directly into the chat.',
       ],
-    },
+    }, */
     {
       company: 'Holacasa (YC W23)',
       href: 'https://holacasa.mx',

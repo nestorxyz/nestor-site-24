@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Icons } from '@/components/icons';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -20,9 +20,17 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 
+const VIDEOS = [
+  'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7525667982769425670_hd.mp4',
+  'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7525579358564519224_hd.mp4',
+  'https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7489963187282922757_v2.mp4',
+];
+
 export function Hero() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleMute = () => {
@@ -31,6 +39,25 @@ export function Hero() {
       setIsMuted(!isMuted);
     }
   };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const current = videoRef.current.currentTime;
+      const total = videoRef.current.duration;
+      if (total > 0) {
+        setProgress((current / total) * 100);
+      }
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setCurrentVideoIndex((prev) => (prev + 1) % VIDEOS.length);
+  };
+
+  useEffect(() => {
+    setIsVideoLoaded(false);
+    setProgress(0);
+  }, [currentVideoIndex]);
 
   return (
     <section id="hero" className="py-7 pt-4 sm:pt-24 sm:pb-10">
@@ -45,7 +72,7 @@ export function Hero() {
               transition={{ duration: 0.5 }}
               className="flex flex-col h-full"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary w-fit text-sm font-medium">
+              <div className="inline-flex mb-3 items-center gap-2 px-3 py-1 rounded-full w-fit text-sm font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border hover:bg-accent cursor-pointer">
                 curious about my work? interview my ai agent.
               </div>
 
@@ -78,7 +105,10 @@ export function Hero() {
                     </button>
                   </Link>
 
-                  <a href={DATA.contact.social.LinkedIn.url} target="_blank">
+                  <a
+                    href="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/CV%20-%20Nestor%20Mamani%20SWE.pdf"
+                    target="_blank"
+                  >
                     <button className="flex select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-5 py-3 rounded-full shadow-md">
                       <Download className="mr-2 h-4 w-4" />
                       download CV
@@ -93,7 +123,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="flex flex-wrap text-[#adb2ae] gap-3 text-xs font-medium mt-4">
+              <div className="flex pt-6 mt-auto flex-wrap text-[#adb2ae] gap-3 text-xs font-medium">
                 <span className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -179,13 +209,13 @@ export function Hero() {
               <div className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <span className="text-sm text-muted-foreground">
-                    worked on
+                    worked on startups backed by YC and 500 Global
                   </span>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-4">
                     {DATA.work.map((work, idx) => (
                       <div
                         key={idx}
-                        className="relative h-8 w-auto px-2 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                        className="relative rounded-lg overflow-hidden h-16 w-auto transition-opacity"
                       >
                         <Image
                           src={work.logoUrl}
@@ -203,20 +233,22 @@ export function Hero() {
                   <span className="text-sm text-muted-foreground">
                     studied on
                   </span>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-4">
                     {DATA.education.map((edu, idx) => (
-                      <div
+                      <a
+                        href={edu.href}
+                        target="_blank"
                         key={idx}
-                        className="relative h-8 w-auto px-2 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                        className="relative cursor-pointer rounded-lg hover:scale-110 transform transition-all overflow-hidden h-16 w-auto"
                       >
                         <Image
                           src={edu.logoUrl}
                           alt={edu.school}
-                          width={100}
-                          height={100}
+                          width={500}
+                          height={500}
                           className="h-full w-auto object-contain"
                         />
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -233,6 +265,32 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex-1 aspect-[9/16] relative rounded-2xl overflow-hidden bg-black group"
             >
+              {/* Progress Bars */}
+              <div className="absolute top-3 left-3 right-3 flex gap-1.5 z-40">
+                {VIDEOS.map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-1 flex-1 bg-white/20 rounded-full overflow-hidden cursor-pointer backdrop-blur-sm transition-transform duration-200 hover:scale-y-150"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentVideoIndex(index);
+                    }}
+                  >
+                    <div
+                      className="h-full bg-white transition-all duration-100 ease-linear"
+                      style={{
+                        width:
+                          index === currentVideoIndex
+                            ? `${progress}%`
+                            : index < currentVideoIndex
+                              ? '100%'
+                              : '0%',
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+
               {/* Placeholder Loading State */}
               <div
                 className={`absolute inset-0 flex items-center justify-center bg-black z-20 transition-opacity duration-500 ${
@@ -256,7 +314,7 @@ export function Hero() {
               </div>
 
               <div
-                className={`absolute top-4 right-4 z-30 transition-opacity duration-300 ${
+                className={`absolute top-6 right-4 z-30 transition-opacity duration-300 ${
                   isMuted ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                 }`}
               >
@@ -276,14 +334,16 @@ export function Hero() {
               </div>
 
               <video
+                key={currentVideoIndex}
                 ref={videoRef}
-                src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/snaptik_7525667982769425670_hd.mp4"
+                src={VIDEOS[currentVideoIndex]}
                 className="w-full h-full object-cover cursor-pointer"
                 autoPlay
                 muted={isMuted}
-                loop
                 playsInline
                 onLoadedData={() => setIsVideoLoaded(true)}
+                onTimeUpdate={handleTimeUpdate}
+                onEnded={handleVideoEnd}
                 onClick={toggleMute}
               />
             </motion.div>
