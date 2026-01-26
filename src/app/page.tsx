@@ -5,7 +5,8 @@ import BlurFadeText from '@/components/magicui/blur-fade-text';
 import { ProjectCard } from '@/components/project-card';
 import { ResumeCard } from '@/components/resume-card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
+import { Skills } from '@/components/skills';
+/* import { Badge } from '@/components/ui/badge'; */
 import { DATA } from '@/data/resume';
 import Markdown from 'react-markdown';
 
@@ -17,6 +18,8 @@ export default function Page() {
       <div className="flex justify-center pb-24 sm:pb-0">
         <div className="mx-0 w-full px-8 max-w-[1280px]">
           <Hero />
+          {/* Skills */}
+          <Skills />
         </div>
       </div>
 
@@ -104,36 +107,7 @@ export default function Page() {
             ))}
           </div>
         </section>
-        <section id="skills">
-          <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
-              <h2 className="text-xl font-bold">Skills</h2>
-            </BlurFade>
-            {Object.entries(DATA.skills).map(
-              ([category, skills], categoryIndex) => (
-                <div key={category} className="space-y-2">
-                  <BlurFade delay={BLUR_FADE_DELAY * 9 + categoryIndex * 0.1}>
-                    <h3 className="text-sm font-medium text-muted-foreground">
-                      {category}
-                    </h3>
-                  </BlurFade>
-                  <div className="flex flex-wrap gap-1">
-                    {skills.map((skill, id) => (
-                      <BlurFade
-                        key={skill}
-                        delay={
-                          BLUR_FADE_DELAY * 9 + categoryIndex * 0.1 + id * 0.03
-                        }
-                      >
-                        <Badge>{skill}</Badge>
-                      </BlurFade>
-                    ))}
-                  </div>
-                </div>
-              ),
-            )}
-          </div>
-        </section>
+        <Skills />
         <section id="projects">
           <div className="space-y-12 w-full py-12">
             <BlurFade delay={BLUR_FADE_DELAY * 11}>
