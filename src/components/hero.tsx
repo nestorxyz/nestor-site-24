@@ -269,7 +269,7 @@ export function Hero() {
               </div>
 
               {/* Right Column - Media & Projects */}
-              <div className="md:max-w-full flex desktop-nav:flex-row gap-4 h-fit">
+              <div className="md:max-w-full flex flex-col lg:flex-row gap-4 h-fit">
                 {/* TikTok Video - Spans full height of first row or takes significant space */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -371,7 +371,7 @@ export function Hero() {
                 >
                   <div className="flex flex-col gap-4 h-full w-full">
                     {/* Project 1: Kubo */}
-                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer">
+                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer min-h-[14rem]">
                       <Image
                         src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/kubo-og.png"
                         alt="Kubo"
@@ -394,7 +394,7 @@ export function Hero() {
                     </div>
 
                     {/* Project 2: DoryAI */}
-                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer">
+                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer min-h-[14rem]">
                       <Image
                         src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/dory-og.png"
                         alt="DoryAI"

@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <main className="overflow-y-scroll h-full w-full max-h-screen">
       <div className="flex justify-center pb-24 sm:pb-0">
-        <div className="mx-0 w-full lg:px-8 px-4 max-w-[1280px]">
+        <div className="mx-0 w-full lg:px-8 px-4 max-w-[1380px]">
           <Hero />
           {/* Skills */}
           <Skills />
