@@ -23,7 +23,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="flex flex-col py-12 sm:py-24 max-w-2xl mx-auto space-y-10">
+      {/* <div className="flex flex-col py-12 sm:py-24 max-w-2xl mx-auto space-y-10">
         <section id="hero">
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-2 flex justify-between">
@@ -215,9 +215,9 @@ export default function Page() {
             </BlurFade>
           </div>
         </section>
-      </div>
+      </div> */}
 
-      <footer className="py-4 text-muted-foreground text-center">
+      <footer className="py-4 mt-8 text-muted-foreground text-center">
         <p className="text-sm">
           &copy; {new Date().getFullYear()} {DATA.name}. All rights reserved.
         </p>
