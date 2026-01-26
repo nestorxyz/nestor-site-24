@@ -137,6 +137,11 @@ export function Hero() {
                           contact
                         </button>
                       </a>
+                      <a href={DATA.contact.social.GitHub.url} target="_blank">
+                        <button className="flex h-[54px] w-[54px] select-none items-center justify-center text-lg font-medium ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border bg-background hover:bg-accent hover:text-accent-foreground px-3 py-3 rounded-full shadow-md aspect-square">
+                          <Icons.github className="h-6 w-6" />
+                        </button>
+                      </a>
                     </div>
                   </div>
 
