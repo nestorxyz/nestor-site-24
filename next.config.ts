@@ -8,6 +8,9 @@ jiti.esmResolve('./src/env.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev'],
+  },
 };
 
 export default nextConfig;

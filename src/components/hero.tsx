@@ -374,23 +374,63 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="md:flex hidden flex-1"
                 >
-                  <div className="grid grid-cols-1 gap-4 grow">
-                    <Link
-                      href="https://holakubo.com"
-                      target="_blank"
-                      className="w-full p-0 border-0 bg-transparent cursor-pointer relative"
-                    >
-                      <h3 className="text-2xl font-medium">Kubo</h3>
-                    </Link>
-                    {/* Project 2: DoryAI */}
+                  <div className="flex flex-col gap-4 h-full w-full">
+                    {/* Project 1: Kubo */}
+                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer">
+                      <Image
+                        src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/kubo-og.png"
+                        alt="Kubo"
+                        fill
+                        className="object-cover transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                          <Link href="https://holakubo.com" target="_blank">
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="rounded-full h-16 w-16"
+                            >
+                              <Icons.globe className="w-8 h-8" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
 
-                    <Link
-                      href="https://www.doryai.app"
-                      target="_blank"
-                      className="w-full p-0 border-0 bg-transparent cursor-pointer relative"
-                    >
-                      <h3 className="text-2xl font-medium">DoryAI</h3>
-                    </Link>
+                    {/* Project 2: DoryAI */}
+                    <div className="group relative flex-1 w-full rounded-2xl overflow-hidden cursor-pointer">
+                      <Image
+                        src="https://pub-ec8befc8b1f943689bc95c09db6dac80.r2.dev/dory-og.png"
+                        alt="DoryAI"
+                        fill
+                        className="object-cover transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
+                        <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                          <Link href="https://www.doryai.app" target="_blank">
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="rounded-full h-16 w-16"
+                            >
+                              <Icons.globe className="w-8 h-8" />
+                            </Button>
+                          </Link>
+                          <Link
+                            href="https://wa.me/51970899781?text=Hola%2C%20como%20me%20puedes%20ayudar%3F"
+                            target="_blank"
+                          >
+                            <Button
+                              size="icon"
+                              className="rounded-full h-16 w-16 bg-[#25D366] hover:bg-[#25D366]/90 text-white border-none"
+                            >
+                              <Icons.whatsapp className="w-8 h-8" />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </div>
